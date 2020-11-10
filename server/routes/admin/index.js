@@ -43,7 +43,7 @@ module.exports = app => {
     })
     //使用子路由并挂载子路由 /rest前缀然后用resource全部去动态替代路径
     app.use('/admin/api/rest/:resource', 
-    async(req,res,next)=>{ //处理动态模型
+    async (req,res,next)=>{ //处理动态模型
         // 转换格式,匹配路由
         const modelName = require('inflection').classify(req.params.resource)
         //动态引入模块
@@ -51,4 +51,16 @@ module.exports = app => {
         next()
     },
     router);
+
+    //装备图片上传接口
+    const multer = require('multer');
+    const upload = multer({dest: __dirname + '/../../uploads'});
+    // 表示接受的单个文件上传 upload.single('file')
+    app.post('/admin/api/upload',upload.single('file'),async (req,res)=>{
+        //获取到的图片sha1码
+        const file = req.file;
+        //图片的地址拼接
+        file.url = `http://localhost:3000/uploads/${file.filename}`;
+        res.send(file);
+    })
 }
