@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-11-09 20:22:56
- * @LastEditTime: 2020-11-10 14:17:52
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit 
- * @FilePath: \blogc:\Users\Administrator.DESKTOP-19074G5\Desktop\testblog\moba\server\models\hero.js
- */
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
@@ -23,7 +15,7 @@ const schema = new mongoose.Schema({
     skills: [{ //技能数据
         icon: { type: String },
         name: { type: String },
-        desciption: { type: String },
+        description: { type: String },
         tips: { type: String }
     }],
     items1: [

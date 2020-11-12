@@ -25,7 +25,7 @@
   
 
 
-<script>
+<script >
 export default {
   props: {
     id: {},

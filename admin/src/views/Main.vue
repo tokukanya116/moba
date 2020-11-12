@@ -1,5 +1,13 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-30 19:43:29
+ * @LastEditTime: 2020-11-12 15:19:02
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \blogc:\Users\Administrator.DESKTOP-19074G5\Desktop\testblog\moba\admin\src\views\Main.vue
+-->
 <template>
-  <el-container style="height: 100vh">
+  <el-container style="height: 100vh;">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <!-- 添加一个router实现一个路由状态 -->
       <el-menu router :default-openeds="['1', '3']">
@@ -24,6 +32,18 @@
             <template slot="title">英雄</template>
             <el-menu-item index="/heroes/create">新建英雄</el-menu-item>
             <el-menu-item index="/heroes/list">英雄列表</el-menu-item>
+          </el-menu-item-group>
+
+          <el-menu-item-group>
+            <template slot="title">文章</template>
+            <el-menu-item index="/articles/create">新建文章</el-menu-item>
+            <el-menu-item index="/articles/list">文章列表</el-menu-item>
+          </el-menu-item-group>
+
+          <el-menu-item-group>
+            <template slot="title">广告位</template>
+            <el-menu-item index="/ads/create">新建广告位</el-menu-item>
+            <el-menu-item index="/ads/list">广告位列表</el-menu-item>
           </el-menu-item-group>
         </el-submenu>   
       </el-menu>
@@ -62,6 +82,10 @@
 
 .el-aside {
   color: #333;
+}
+
+.dashed{
+  border: 1px dashed #DCDFE6;
 }
 </style>
   
