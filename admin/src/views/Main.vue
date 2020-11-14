@@ -1,26 +1,24 @@
 <!--
  * @Author: your name
  * @Date: 2020-10-30 19:43:29
- * @LastEditTime: 2020-11-12 15:19:02
- * @LastEditors: your name
+ * @LastEditTime: 2020-11-13 10:19:59
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \blogc:\Users\Administrator.DESKTOP-19074G5\Desktop\testblog\moba\admin\src\views\Main.vue
 -->
 <template>
-  <el-container style="height: 100vh;">
+  <el-container style="height: 100vh">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <!-- 添加一个router实现一个路由状态 -->
-      <el-menu router :default-openeds="['1', '3']">
+      <!-- 一次只能展开一个:unique-opened -->
+      <!-- 标签高亮default-active="$route.path" -->
+      <el-menu router :default-openeds="['1']" 
+      unique-opened :default-active="$route.path">
         <!-- 列表1 -->
         <el-submenu index="1">
           <template slot="title"
             ><i class="el-icon-message"></i>内容管理</template
           >
-          <el-menu-item-group>
-            <template slot="title">分类</template>
-            <el-menu-item index="/categories/create">新建分类</el-menu-item>
-            <el-menu-item index="/categories/list">分类列表</el-menu-item>
-          </el-menu-item-group>
 
           <el-menu-item-group>
             <template slot="title">物品</template>
@@ -40,12 +38,33 @@
             <el-menu-item index="/articles/list">文章列表</el-menu-item>
           </el-menu-item-group>
 
+        </el-submenu>
+        <el-submenu index="2">
+          <template slot="title"
+            ><i class="el-icon-message"></i>运营管理</template
+          >
           <el-menu-item-group>
             <template slot="title">广告位</template>
             <el-menu-item index="/ads/create">新建广告位</el-menu-item>
             <el-menu-item index="/ads/list">广告位列表</el-menu-item>
           </el-menu-item-group>
-        </el-submenu>   
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title"
+            ><i class="el-icon-message"></i>系统设置</template
+          >
+          <el-menu-item-group>
+            <template slot="title">分类</template>
+            <el-menu-item index="/categories/create">新建分类</el-menu-item>
+            <el-menu-item index="/categories/list">分类列表</el-menu-item>
+          </el-menu-item-group>
+
+          <el-menu-item-group>
+            <template slot="title">管理员</template>
+            <el-menu-item index="/admin_users/create">新建管理员</el-menu-item>
+            <el-menu-item index="/admin_users/list">管理员列表</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
       </el-menu>
     </el-aside>
 
@@ -84,7 +103,7 @@
   color: #333;
 }
 
-.dashed{
+.dashed {
   border: 1px dashed #DCDFE6;
 }
 </style>
@@ -94,9 +113,7 @@
 <script>
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
 };
 </script>

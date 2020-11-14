@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+//Routes>index => jwt的秘钥设定为全局(*不建议这样写,这里只是简单用用,建议额外添加模块*)
+app.set('serect','i2u34y12oi3u4y8')
 // 使用跨域中间件
 app.use(require('cors')())
 // 服务器挂在json解析
